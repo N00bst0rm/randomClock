@@ -14,12 +14,12 @@ int main(){
 	srand(time(NULL));
 
 	while(1){
-		char *output = getTime();
-		printf("%s\n", output);
-		free(output);
-
 		time_t timeSeconds = time(0);
 		struct tm *displayTime = localtime(&timeSeconds);
+
+		char *output = getTime();
+		printf("Current time (24hr): %02d:%02d -> Randomized time (12hr): %s\n", displayTime->tm_hour, displayTime->tm_min, output);
+		free(output);
 
 		// Sleep until the next minute, avoiding busy waiting and conditionals
 		sleep(60 - displayTime->tm_sec);

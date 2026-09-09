@@ -11,7 +11,7 @@ int32_t incrementMins(struct tm *curTime){
 	return randMins;
 }
 
-void displayTime(){
+char *getTime(){
 	time_t timeSeconds = time(0);
 	struct tm *displayTime = localtime(&timeSeconds);
 
@@ -24,7 +24,11 @@ void displayTime(){
 
 	int32_t timeHour = displayTime->tm_hour;
 	int32_t displayHour = ((timeHour + hourOffset + 11) % 12) + 1;
-	char *meridiem = ((timeHour + hourOffset) % 24) >= 12 ? "PM" : "AM";
+	const char *meridiem = ((timeHour + hourOffset) % 24) >= 12 ? "PM" : "AM";
 
-	printf("%" PRId32 ":%02" PRId32 " %s\n", displayHour, randMins, meridiem);
+	char *output = malloc(sizeof(char) * 9);
+	// This throws warnings. Oh well
+	snprintf(output, 9, "%02" PRId32 ":%02" PRId32 " %.2s", displayHour, randMins, meridiem);
+
+	return output;
 }

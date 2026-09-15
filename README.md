@@ -3,7 +3,7 @@ I have an issue with waking up on time to go places, so instead I try to set my 
 
 Enter randomClock. This program will add a variable amount of minutes to the current time, updated every minute.
 
-## NOTE
+## Dependencies
 Requires at least C23 to compile
 
 ## Demo

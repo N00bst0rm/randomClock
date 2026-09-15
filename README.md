@@ -5,3 +5,7 @@ Enter randomClock. This program will add a variable amount of minutes to the cur
 
 ## Demo
 Run "make" in the project's root directory to compile, which will compile the binary to the bin folder. Run the "randomClock" binary for the demonstration.
+NOTE: Requires at least C23 to compile
+
+## TODO
+Make a better algorithm so time doesn't move backwards
